@@ -28,3 +28,11 @@ npm start
 
 - Brand name „Aether AI” jest placeholderem.
 - Formularz kontaktowy działa po stronie klienta (walidacja + komunikat sukcesu) — bez backendu.
+
+## Lockfile
+
+Jeśli w repozytorium brakuje `package-lock.json`, wygeneruj go lokalnie:
+
+```bash
+npm install
+```
