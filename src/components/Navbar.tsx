@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const links = [
   { href: "#uslugi", label: "Usługi" },
@@ -37,7 +38,7 @@ export default function Navbar() {
       }`}
     >
       <nav
-        className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8"
+        className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-4 sm:px-6 lg:px-8"
         aria-label="Główna nawigacja"
       >
         <a
@@ -60,38 +61,44 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <a
-          href="#kontakt"
-          className="hidden rounded-md bg-foreground px-4 py-2 text-sm font-medium text-background transition-opacity hover:opacity-90 md:inline-flex"
-        >
-          Porozmawiajmy
-        </a>
-
-        <button
-          type="button"
-          className="inline-flex items-center justify-center rounded-md p-2 text-foreground md:hidden"
-          aria-expanded={open}
-          aria-controls="mobile-menu"
-          aria-label={open ? "Zamknij menu" : "Otwórz menu"}
-          onClick={() => setOpen((v) => !v)}
-        >
-          <span className="sr-only">{open ? "Zamknij" : "Menu"}</span>
-          <svg
-            width="22"
-            height="22"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            aria-hidden="true"
+        <div className="hidden items-center gap-3 md:flex">
+          <ThemeToggle />
+          <a
+            href="#kontakt"
+            className="inline-flex rounded-md bg-foreground px-4 py-2 text-sm font-medium text-background transition-opacity hover:opacity-90"
           >
-            {open ? (
-              <path d="M6 6l12 12M18 6L6 18" />
-            ) : (
-              <path d="M4 7h16M4 12h16M4 17h16" />
-            )}
-          </svg>
-        </button>
+            Porozmawiajmy
+          </a>
+        </div>
+
+        <div className="flex items-center gap-2 md:hidden">
+          <ThemeToggle />
+          <button
+            type="button"
+            className="inline-flex items-center justify-center rounded-md p-2 text-foreground"
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+            aria-label={open ? "Zamknij menu" : "Otwórz menu"}
+            onClick={() => setOpen((v) => !v)}
+          >
+            <span className="sr-only">{open ? "Zamknij" : "Menu"}</span>
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              aria-hidden="true"
+            >
+              {open ? (
+                <path d="M6 6l12 12M18 6L6 18" />
+              ) : (
+                <path d="M4 7h16M4 12h16M4 17h16" />
+              )}
+            </svg>
+          </button>
+        </div>
       </nav>
 
       {open && (

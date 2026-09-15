@@ -29,7 +29,7 @@ export default function Services() {
       aria-labelledby="services-heading"
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl">
+        <div className="animate-fade-up max-w-2xl">
           <p className="text-sm font-medium tracking-wide text-accent-dark">
             Usługi
           </p>
@@ -49,7 +49,9 @@ export default function Services() {
           {services.map((service, index) => (
             <li
               key={service.title}
-              className="group rounded-xl border border-border bg-card p-6 transition-colors hover:border-accent/40 sm:p-8"
+              className={`group animate-fade-up rounded-xl border border-border bg-card p-6 transition-colors hover:border-accent/40 sm:p-8 ${
+                index % 2 === 1 ? "animate-delay-1" : ""
+              }`}
             >
               <span className="font-mono text-xs text-muted">
                 0{index + 1}
