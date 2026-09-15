@@ -10,11 +10,11 @@ export default function Hero() {
         aria-hidden="true"
         style={{
           background:
-            "radial-gradient(ellipse 70% 50% at 80% 0%, rgba(13,148,136,0.08), transparent 60%)",
+            "radial-gradient(ellipse 70% 50% at 80% 0%, color-mix(in srgb, var(--accent) 14%, transparent), transparent 60%)",
         }}
       />
       <div className="relative mx-auto grid max-w-6xl gap-12 px-4 py-20 sm:px-6 sm:py-28 lg:grid-cols-12 lg:px-8 lg:py-32">
-        <div className="lg:col-span-7">
+        <div className="animate-fade-up lg:col-span-7">
           <p className="mb-4 text-sm font-medium tracking-wide text-accent-dark">
             Wdrożenia AI dla firm
           </p>
@@ -45,8 +45,8 @@ export default function Hero() {
           </div>
         </div>
 
-        <aside className="flex flex-col justify-end gap-4 lg:col-span-5">
-          <div className="rounded-xl border border-border bg-card p-6 shadow-sm">
+        <aside className="animate-fade-up animate-delay-2 flex flex-col justify-end gap-4 lg:col-span-5">
+          <div className="rounded-xl border border-border bg-card p-6 shadow-sm transition-shadow hover:shadow-md">
             <p className="text-xs font-medium uppercase tracking-wider text-muted">
               Podejście
             </p>
@@ -82,7 +82,7 @@ export default function Hero() {
             ].map((item) => (
               <div
                 key={item.label}
-                className="rounded-lg border border-border bg-card px-3 py-4 text-center"
+                className="rounded-lg border border-border bg-card px-3 py-4 text-center transition-colors hover:border-accent/40"
               >
                 <p className="text-sm font-semibold text-foreground">
                   {item.value}
